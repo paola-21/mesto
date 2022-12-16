@@ -1,0 +1,10 @@
+.element__container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 15px 31px 21px;
+  background-image: url(../../../images/element.svg);
+  background-size: 22px 19px;
+  background-position-x: 241px;
+  background-position-y: 25px;
+  background-repeat: no-repeat;
+}

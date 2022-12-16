@@ -1,0 +1,12 @@
+.element {
+  border-radius: 10px;
+  background-color: #FFFFFF;
+  max-width: 282px;
+  height: 360px;
+}
+
+@media (max-width: 1279px) {
+  .element {
+    height: 361px;
+  }
+}
