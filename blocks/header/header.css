@@ -1,12 +1,12 @@
 .header {
   margin-left: 200px;
   margin-right: 200px;
-  border-left: 0; 
-  border-top: 0; 
-  border-right: 0; 
-  border-bottom-width: 1px; 
-  border-bottom-style: solid; 
-  border-bottom-color: rgba(84, 84, 84, 1); 
+  border-left: 0;
+  border-top: 0;
+  border-right: 0;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: rgba(84, 84, 84, 1);
 }
 
 @media (max-width: 1279px) {
