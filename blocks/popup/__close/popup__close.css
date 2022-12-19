@@ -2,18 +2,19 @@
   width: 32px;
   height: 32px;
   background-image: url(../../../images/close.svg);
-  background-color: hsla(0, 36%, 24%, 0.363);
+  background-color: #11ffee00;
   margin: 0;
   padding: 0;
   border: 0;
   position: absolute;
   right: -40px;
   top: -40px;
-
+  transition: opacity 2s;
 }
 
 .popup__close:hover {
   opacity: 0.6;
+  cursor: pointer;
 }
 
 @media (max-width: 1279px) {

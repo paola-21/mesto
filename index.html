@@ -11,53 +11,58 @@
   <div class="page__container">
     <header class="header">
       <img class="header__logo" src="./images/header__logo.svg" alt="логотип">
-      <p class="header__line"></p>
     </header>
     <main class="container">
       <section class="profile">
         <img class="profile__avatar" src="./images/profile.jpg" alt="аватар">
         <div class="profile__info">
           <h1 class="profile__header">Жак-Ив Кусто</h1>
-          <input class="editButton" type="submit">
+          <button class="edit-button" type="button" aria-label="редактировать"></button>
           <p class="profile__text">Исследователь океана</p>
-        </div>  
-        <img class="addButton" src="./images/addButton.svg" alt="кнопка">
+        </div>
+        <button class="add-button" type="button" aria-label="добавить"></button>
       </section>
       <section class="elements">
         <article class="element">
           <img src="./images/kirill-pershin-1088404-unsplash.png" alt="Карачаевск" class="element__foto">
           <div class="element__container">
             <h2 class="element__text">Карачаевск</h2>
+            <div class="element__like"></div>
           </div>
         </article>
         <article class="element">
             <img src="./images/kirill-pershin-1404681-unsplash.png" alt="Гора Эльбрус" class="element__foto">
             <div class="element__container">
               <h2 class="element__text">Гора Эльбрус</h2>
+              <div class="element__like"></div>
             </div>
           </article>
           <article class="element">
             <img src="./images/kirill-pershin-1556355-unsplash.png" alt="Домбай" class="element__foto">
             <div class="element__container">
               <h2 class="element__text">Домбай</h2>
+              <div class="element__like"></div>
             </div>
           </article>
           <article class="element">
             <img src="./images/gleb-lucky-7SF0nk9ddbY-unsplash.jpg" alt="Карачаево-черкесская республика" class="element__foto">
             <div class="element__container">
               <h2 class="element__text">Карачаево-черкесская республика</h2>
+              <div class="element__like"></div>
             </div>
           </article>
           <article class="element">
             <img src="./images/aisvri-ONr2GmQp1nk-unsplash.jpg" alt="Кисловодск" class="element__foto">
             <div class="element__container">
               <h2 class="element__text">Кисловодск</h2>
+              <div class="element__like"></div>
             </div>
           </article>
           <article class="element">
             <img src="./images/egor-myznik-7ukwCTEMwyw-unsplash.jpg" alt="Роза Хутор" class="element__foto">
             <div class="element__container">
               <h2 class="element__text">Роза Хутор</h2>
+              <div class="element__like"></div>
             </div>
           </article>
       </section>
@@ -69,12 +74,12 @@
   <div class="popup">
     <div class="popup__container">
       <h2 class="popup__header">Редактировать профиль</h2>
-      <form class="form">
-        <input type="text" placeholder="Жак-Ив Кусто" class="popup__input-header">
-        <input type="text" placeholder="Исследователь океана" class="popup__input-text">
-        <button class="popup__input-button" type="submit">Сохранить</button>
+      <form class="form" name="submit">
+        <input type="text" placeholder="Жак-Ив Кусто" class="form__input form__input_text_header" name="input-header">
+        <input type="text" placeholder="Исследователь океана" class="form__input form__input_text_text" name="input-text">
+        <button class="form__input-button" type="submit">Сохранить</button>
       </form>
-      <button class="popup__close" type="reset"></button>
+      <button class="popup__close" type="reset" aria-label="закрыть"></button>
     </div>
   </div> 
 <script src="./scripts/index.js"></script>  

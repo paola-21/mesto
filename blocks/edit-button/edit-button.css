@@ -1,4 +1,4 @@
-.editButton {
+.edit-button {
   background-size: 10px 10px;
   background-position: center;
   width: 24px;
@@ -7,13 +7,13 @@
   border: 1px solid #FFFFFF;
   margin-top: 8px;
   background-image: url(../../images/editButton.svg);
-  background-color: black;
+  background-color: #11ffee00;
   background-repeat: no-repeat;
-  cursor: pointer;
+  transition: opacity 2s;
 }
 
 @media (max-width: 1279px) {
-  .editButton {
+  .edit-button {
     background-size: 7.5px 7.5px;
     width: 18px;
     height: 18px;
@@ -22,6 +22,7 @@
   }
 }
 
-.editButton:hover {
+.edit-button:hover {
   opacity: 0.6;
+  cursor: pointer;
 }
