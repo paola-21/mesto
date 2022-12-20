@@ -12,6 +12,7 @@
   text-align: center;
   margin: 31px 36px 37px 36px;
   padding: 0;
+  border: 0;
   transition: opacity 2s;
 }
 
@@ -26,6 +27,6 @@
     height: 46px;
     font-size: 14px;
     line-height: 27px;
-    margin: 45px 22px 25px 22px;
+    margin: 13px 22px 26px 22px;
   }
 }

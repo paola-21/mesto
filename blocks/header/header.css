@@ -6,7 +6,7 @@
   border-right: 0;
   border-bottom-width: 1px;
   border-bottom-style: solid;
-  border-bottom-color: rgba(84, 84, 84, 1);
+  border-bottom-color: rgba(84, 84, 84, 0.7);
 }
 
 @media (max-width: 1279px) {

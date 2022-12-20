@@ -5,21 +5,20 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
-  margin: 0 36px 0 36px;
-  padding: 13px 0 13px 0;
+  margin: 0 36px 19px 36px;
+  padding: 8px 0 10px 0;
   border-left: 0;
   border-top: 0;
   border-right: 0;
   border-bottom-width: 1px;
   border-bottom-style: solid;
   border-bottom-color: rgba(0, 0, 0, 0.2);
-  margin-bottom: 17px;
 }
 
 @media (max-width: 1279px) {
   .form__input {
     width: 238px;
-    margin: 0 22px 0 22px;
+    margin: 0 22px 30px 22px;
     padding: 0 0 9px 0;
   }
 }
