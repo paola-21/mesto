@@ -1,8 +1,8 @@
 const editButton = document.querySelector('.edit-button');
-const popup = document.querySelector('.popup');
-const closeButton = popup.querySelector('.popup__close');
+const popup = document.querySelector('.popup_type_edit');
+const closeButton = popup.querySelector('.popup__close_type_edit');
 
-let formElement = document.querySelector('.form');
+let formElement = document.querySelector('.form_type_edit');
 let nameInput = formElement.querySelector('.form__input_text_header');
 let jobInput = formElement.querySelector('.form__input_text_text');
 let profileName = document.querySelector('.profile__header');
@@ -80,3 +80,44 @@ function renderElement() {
 }
 
 renderElement();
+
+const addButton = document.querySelector('.add-button');
+const popupNewCard = document.querySelector('.popup_type_new-card');
+const closePopup = popupNewCard.querySelector('.popup__close_type_new-card');
+
+
+let formNewCard = document.querySelector('.form_type_new-card');
+let elementText = document.querySelector('.element__text');
+let elementFoto = document.querySelector('.element__foto');
+
+function openPopupNewCard() {
+  popupNewCard.classList.add('popup_opened');
+}
+
+function closePopapNewCard() {
+  popupNewCard.classList.remove('popup_opened');
+}
+
+addButton.addEventListener ('click', openPopupNewCard);
+closePopup.addEventListener ('click', closePopapNewCard);
+
+
+function addNewCard(cardName, imageLink) {
+  /*const textInput = formNewCard.querySelector('.form__input_text_name').value;
+  const linkInput = formNewCard.querySelector('.form__input_text_link').value;*/
+  const elementHtml = createElement({name: cardName, link: imageLink});
+  elementContainer.append(elementHtml);
+  /*elementContainer.prepend(cardName, imageLink);*/
+}
+
+
+function submitCard (evt) {
+  const cardName = evt.target[0].value;
+  const imageLink = evt.target[1].value;
+  evt.preventDefault();
+  addNewCard(cardName, imageLink);
+  closePopapNewCard();
+
+}
+
+formNewCard.addEventListener('submit', submitCard);

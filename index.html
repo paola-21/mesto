@@ -22,33 +22,48 @@
         </div>
         <button class="add-button" type="button" aria-label="добавить"></button>
       </section>
-    <section class="elements"></section>  
+    <ul class="elements"></ul>  
     </main>
     <footer class="footer">
       <p class="footer__text">© 2020 Mesto Russia</p>
     </footer>
   </div> 
-  <div class="popup">
+  <div class="popup popup_type_edit">
     <div class="popup__container">
       <h2 class="popup__header">Редактировать профиль</h2>
-      <form class="form" name="submit">
+      <form class="form form_type_edit" name="submit">
         <input type="text" placeholder="Жак-Ив Кусто" class="form__input form__input_text_header" name="input-header">
         <input type="text" placeholder="Исследователь океана" class="form__input form__input_text_text" name="input-text">
         <button class="form__input-button" type="submit">Сохранить</button>
       </form>
-      <button class="popup__close" type="reset" aria-label="закрыть"></button>
+      <button class="popup__close popup__close_type_edit" type="reset" aria-label="закрыть"></button>
     </div>
   </div> 
 
+  <div class="popup popup_type_new-card">
+    <div class="popup__container">
+      <h2 class="popup__header">Новое место</h2>
+      <form class="form form_type_new-card" name="submit-new-card">
+        <input type="text" placeholder="Название" class="form__input form__input_text_name" name="input-name">
+        <input type="text" placeholder="Ссылка на картинку" class="form__input form__input_text_link" name="input-link">
+        <button class="form__input-button" type="submit">Сохранить</button>
+      </form>
+      <button class="popup__close popup__close_type_new-card" type="reset" aria-label="закрыть"></button>
+    </div>
+  </div>
+
   <template class="template">
-      <article class="element">
+      <li class="element">
         <img src="#" alt="#" class="element__foto">
         <div class="element__container">
           <h2 class="element__text"></h2>
           <button class="element__like" type="button"></button>
+          <button class="element__delete" type="button"></button>
         </div>
-      </article>
+      </li>
   </template>
+
+
 <script src="./scripts/index.js"></script>  
 </body>
 </html>
