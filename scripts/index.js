@@ -62,12 +62,21 @@ const initialCards = [
 const elementContainer = document.querySelector ('.elements');
 const elementTemplate = document.querySelector('.template').content.querySelector('.element');
 
+
 function createElement(item) {
   const element = elementTemplate.cloneNode(true);
 
   element.querySelector('.element__text').textContent = item.name;
   element.querySelector('.element__foto').src = item.link;
   element.querySelector('.element__foto').alt = item.link;
+
+
+  const deleteCard = () => {
+    element.remove();
+  }
+
+  const deleteButton = element.querySelector('.element__delete');
+  deleteButton.addEventListener('click', deleteCard);
 
   return element;
 }
@@ -103,11 +112,8 @@ closePopup.addEventListener ('click', closePopapNewCard);
 
 
 function addNewCard(cardName, imageLink) {
-  /*const textInput = formNewCard.querySelector('.form__input_text_name').value;
-  const linkInput = formNewCard.querySelector('.form__input_text_link').value;*/
   const elementHtml = createElement({name: cardName, link: imageLink});
-  elementContainer.append(elementHtml);
-  /*elementContainer.prepend(cardName, imageLink);*/
+  elementContainer.prepend(elementHtml);
 }
 
 
