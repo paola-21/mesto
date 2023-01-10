@@ -60,7 +60,7 @@ const initialCards = [
 ];
 
 const elementContainer = document.querySelector ('.elements');
-const elementTemplate = document.querySelector('.template'); /*.content.querySelector('.element');*/
+const elementTemplate = document.querySelector('.template');
 
 const addButton = document.querySelector('.add-button');
 const popupNewCard = document.querySelector('.popup_type_new-card');
@@ -99,12 +99,6 @@ function createElement(item) {
   const elementFoto = element.querySelector('.element__foto');
 
   const PopupImg = document.querySelector('.popup_type_img');
-  
-  /*function openPopupImg() {
-    PopupImg.classList.add('popup_opened');
-  }
-  
-  elementFoto.addEventListener ('click', openPopupImg);*/
   
   function openImg () {
     const popupImg = document.querySelector('.popup__img');
