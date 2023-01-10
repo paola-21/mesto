@@ -2,11 +2,11 @@ const editButton = document.querySelector('.edit-button');
 const popup = document.querySelector('.popup_type_edit');
 const closeButton = popup.querySelector('.popup__close_type_edit');
 
-let formElement = document.querySelector('.form_type_edit');
-let nameInput = formElement.querySelector('.form__input_text_header');
-let jobInput = formElement.querySelector('.form__input_text_text');
-let profileName = document.querySelector('.profile__header');
-let profileJob = document.querySelector('.profile__text');
+const formElement = document.querySelector('.form_type_edit');
+const nameInput = formElement.querySelector('.form__input_text_header');
+const jobInput = formElement.querySelector('.form__input_text_text');
+const profileName = document.querySelector('.profile__header');
+const profileJob = document.querySelector('.profile__text');
 
 function openPopup() {
   popup.classList.add('popup_opened');
@@ -65,12 +65,12 @@ const elementTemplate = document.querySelector('.template'); /*.content.querySel
 const addButton = document.querySelector('.add-button');
 const popupNewCard = document.querySelector('.popup_type_new-card');
 const closePopup = popupNewCard.querySelector('.popup__close_type_new-card');
-const likeButton = document.querySelector('.element__like');
 
 
-let formNewCard = document.querySelector('.form_type_new-card');
-let elementText = document.querySelector('.element__text');
-let elementFoto = document.querySelector('.element__foto');
+const formNewCard = document.querySelector('.form_type_new-card');
+const elementText = document.querySelector('.element__text');
+const elementFoto = document.querySelector('.element__foto');
+const PopupImgclose = document.querySelector('.popup__close_type_img');
 
 
 function createElement(item) {
@@ -80,19 +80,49 @@ function createElement(item) {
   const elAlt = element.querySelector('.element__foto').alt = item.name;
   const elLink = element.querySelector('.element__foto').src = item.link;
 
-  const likeButton = document.querySelector('.element__like');
+  const likeButton = element.querySelector('.element__like');
 
+  //кнопка лайка
   likeButton.addEventListener('click', function (evt) {
     evt.target.classList.toggle('element__like_aktive');
   });
 
-  const deleteCard = () => {
-    element.remove();
+  //удаление карточки
+  const deleteButton = element.querySelector('.element__delete');
+  deleteButton.addEventListener('click', function () {
+    const deleteCard = deleteButton.closest('.element');
+    deleteCard.remove();
+  });
+
+    //открытие попап картинки
+
+  const elementFoto = element.querySelector('.element__foto');
+
+  const PopupImg = document.querySelector('.popup_type_img');
+  
+  /*function openPopupImg() {
+    PopupImg.classList.add('popup_opened');
+  }
+  
+  elementFoto.addEventListener ('click', openPopupImg);*/
+  
+  function openImg () {
+    const popupImg = document.querySelector('.popup__img');
+    const popupImgTitle = document.querySelector('.popup__img-title');
+    popupImg.setAttribute('src', elLink);
+    popupImgTitle.setAttribute('alt', elAlt);
+    popupImgTitle.textContent = elText;
+    PopupImg.classList.add('popup_opened');
+  }
+  
+  elementFoto.addEventListener('click', openImg);
+
+  function closePopupImg() {
+    PopupImg.classList.remove('popup_opened');  
   }
 
-  const deleteButton = element.querySelector('.element__delete');
-  deleteButton.addEventListener('click', deleteCard);
-  
+  PopupImgclose.addEventListener ('click', closePopupImg);
+   
   return element;
 }
 
@@ -134,10 +164,3 @@ function submitCard (evt) {
 }
 
 formNewCard.addEventListener('submit', submitCard);
-
-/*function clickLike (evt) {
-  likeButton.classList.toggle('element__like_aktive');
-}
-
-likeButton.addEventListener('click', clickLike);*/
-
