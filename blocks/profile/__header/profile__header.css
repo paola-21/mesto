@@ -9,6 +9,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  flex-basis: 294px;
 }
 
 @media (max-width: 924px) {
@@ -18,5 +19,6 @@
     line-height: 33px;
     max-width: 189px;
     padding-left: 29px;
+    flex-basis: 189px;
   }
 }
