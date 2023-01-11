@@ -29,33 +29,7 @@
 @import url(../blocks/form/__input/form__input.css);
 @import url(../blocks/popup/_opened/popup_opened.css);
 @import url(../blocks/element/__delete/element__delete.css);
-
-
-.popup__figure {
-  margin: 0;
-  justify-content: center;
-  align-items: center;
-}
-
-.popup__img {
-  max-width: 75vw;
-  max-height: 75vh;
-  position: relative;
-  padding-bottom: 10px;
-}
-
-
-.popup__img-title {
-  font-family: 'Inter', "Arial ", sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 15px;
-  color: #FFFFFF;
-}
-
-.popup__container_img {
-  max-width: 75vw;
-  max-height: 75vh;
-  position: relative;
-}
+@import url(../blocks/popup/__container-figure/popup__container-figure.css);
+@import url(../blocks/popup/__figure/popup__figure.css);
+@import url(../blocks/popup/__img/popup__img.css);
+@import url(../blocks/popup/__img-title/popup__img-title.css);
