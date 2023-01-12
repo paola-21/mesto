@@ -4,6 +4,7 @@
   margin-left: 30px;
   width: 100%;
   align-items: center;
+
 }
 
 @media (max-width: 924px) {
@@ -11,5 +12,6 @@
     margin-left: 0;
     justify-content: center;
     padding-top: 27px;
+    padding-bottom: 27px;
   }
 }
