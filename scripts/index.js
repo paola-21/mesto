@@ -25,7 +25,6 @@ function closePopup(popup) {
   popup.classList.remove('popup_opened');
 }
 
-
 //зактытие попапа оверлей
 popupEditProfile.addEventListener ('click', (evt) => {
   if (evt.target === evt.currentTarget) {
@@ -34,22 +33,18 @@ popupEditProfile.addEventListener ('click', (evt) => {
 });
 
 
+
+
+
+
 //закрытие попапа ескейп
-
-/*function keyHandler(evt,) {
-  if (evt.key === 'Escape') {
-    closePopup();
-  } 
-}
-
-document.addEventListener ('keydown', keyHandler(evt, popupEditProfile));*/
-
 document.addEventListener ('keydown', function (evt) {
   if (evt.key === 'Escape') {
+    closePopup(popupNewCard);
     closePopup(popupEditProfile);
+    closePopup(popupImg);
   }
 })
-
 
 
 buttonCloseEditProfileForm.addEventListener ('click', () => {
@@ -135,8 +130,21 @@ buttonCloseNewCard.addEventListener ('click', () => {
 });
 
 
+
 buttonClosePopupImage.addEventListener ('click', () => {
   closePopup(popupImg)
+});
+
+popupNewCard.addEventListener ('click', (evt) => {
+  if (evt.target === evt.currentTarget) {
+    closePopup(popupNewCard);
+  }
+});
+
+popupImg.addEventListener ('click', (evt) => {
+  if (evt.target === evt.currentTarget) {
+    closePopup(popupImg);
+  }
 });
 
 
