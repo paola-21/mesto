@@ -13,7 +13,6 @@ function openPopup (popup) {
   popup.classList.add('popup_opened');
 }
 
-
 buttonOpenEditProfileForm.addEventListener ('click', () => {
   openPopup(popupEditProfile);
   nameInput.value = profileName.textContent;
@@ -32,11 +31,6 @@ popupEditProfile.addEventListener ('click', (evt) => {
   }
 });
 
-
-
-
-
-
 //закрытие попапа ескейп
 document.addEventListener ('keydown', function (evt) {
   if (evt.key === 'Escape') {
@@ -45,7 +39,6 @@ document.addEventListener ('keydown', function (evt) {
     closePopup(popupImg);
   }
 })
-
 
 buttonCloseEditProfileForm.addEventListener ('click', () => {
   closePopup(popupEditProfile)
@@ -128,8 +121,6 @@ buttonOpenAddCardForm.addEventListener ('click', () => {
 buttonCloseNewCard.addEventListener ('click', () => {
   closePopup(popupNewCard)
 });
-
-
 
 buttonClosePopupImage.addEventListener ('click', () => {
   closePopup(popupImg)
