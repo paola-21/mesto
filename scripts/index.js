@@ -25,6 +25,33 @@ function closePopup(popup) {
   popup.classList.remove('popup_opened');
 }
 
+
+//зактытие попапа оверлей
+popupEditProfile.addEventListener ('click', (evt) => {
+  if (evt.target === evt.currentTarget) {
+    closePopup(popupEditProfile);
+  }
+});
+
+
+//закрытие попапа ескейп
+
+/*function keyHandler(evt,) {
+  if (evt.key === 'Escape') {
+    closePopup();
+  } 
+}
+
+document.addEventListener ('keydown', keyHandler(evt, popupEditProfile));*/
+
+document.addEventListener ('keydown', function (evt) {
+  if (evt.key === 'Escape') {
+    closePopup(popupEditProfile);
+  }
+})
+
+
+
 buttonCloseEditProfileForm.addEventListener ('click', () => {
   closePopup(popupEditProfile)
 });
@@ -107,9 +134,11 @@ buttonCloseNewCard.addEventListener ('click', () => {
   closePopup(popupNewCard)
 });
 
+
 buttonClosePopupImage.addEventListener ('click', () => {
   closePopup(popupImg)
 });
+
 
 //фунция добавления карточки
 function submitCard (evt) {
@@ -126,14 +155,7 @@ function submitCard (evt) {
 formNewCard.addEventListener('submit', submitCard);
 
 
-
-
-//const formElement = document.querySelector('.form');
-//const formInput = formElement.querySelector('.form__input');
-//const formError = formElement.querySelector(`.${formInput.id}-error`);
-//const formEdit = document.querySelector('.form_type_edit');
-//const formNewCard2 = document.querySelector('.form_type_new-card');
-
+//валидация формы
 const showInputError = (formElement, inputElement, errorMessage) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   inputElement.classList.add(config.inputErrorClass);
@@ -164,8 +186,10 @@ const hasInvalidInput = (inputList) => {
 const toggleButtonState = (inputList, buttonElement) => {
   if (hasInvalidInput(inputList)) {
     buttonElement.classList.add(config.inactiveButtonClass);
+    buttonElement.setAttribute('disabled', 'кнопка отключена');
   } else {
     buttonElement.classList.remove(config.inactiveButtonClass);
+    buttonElement.removeAttribute('disabled');
   }
 };
 
@@ -193,4 +217,3 @@ const enableValidation = () => {
 
 enableValidation();
 
- 
