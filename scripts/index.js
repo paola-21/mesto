@@ -1,16 +1,16 @@
 const buttonOpenEditProfileForm = document.querySelector('.edit-button');
 const popupEditProfile = document.querySelector('.popup_type_edit');
-const buttonCloseEditProfileForm = popupEditProfile.querySelector('.popup__close_type_edit');
-
 const formEditProfile = document.querySelector('.form_type_edit');
 const nameInput = formEditProfile.querySelector('.form__input_text_header');
 const jobInput = formEditProfile.querySelector('.form__input_text_text');
 const profileName = document.querySelector('.profile__header');
 const profileJob = document.querySelector('.profile__text');
+const popups = document.querySelectorAll('.popup');
 
 //шаблонная функция открытия попапа
 function openPopup (popup) {
   popup.classList.add('popup_opened');
+  document.addEventListener('keydown', closeByEscape);
 }
 
 buttonOpenEditProfileForm.addEventListener ('click', () => {
@@ -19,30 +19,33 @@ buttonOpenEditProfileForm.addEventListener ('click', () => {
   jobInput.value = profileJob.textContent;
 });
 
+popups.forEach((popup) => {
+  popup.addEventListener('mousedown', (evt) => {
+      if (evt.target.classList.contains('popup_opened')) {
+          closePopup(popup)
+      }
+      if (evt.target.classList.contains('popup__close')) {
+        closePopup(popup)
+      }
+  })
+})
+
 //шаблонная функция закрытия попапа
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closeByEscape);
 }
 
-//зактытие попапа оверлей
-popupEditProfile.addEventListener ('click', (evt) => {
-  if (evt.target === evt.currentTarget) {
-    closePopup(popupEditProfile);
-  }
-});
-
 //закрытие попапа ескейп
-document.addEventListener ('keydown', function (evt) {
+function closeByEscape(evt) {
   if (evt.key === 'Escape') {
-    closePopup(popupNewCard);
-    closePopup(popupEditProfile);
-    closePopup(popupImg);
+    const openedPopup = document.querySelector('.popup_opened')
+    closePopup(openedPopup);
   }
-})
+}
 
-buttonCloseEditProfileForm.addEventListener ('click', () => {
-  closePopup(popupEditProfile)
-});
+document.addEventListener('keydown', closeByEscape);
+document.removeEventListener('keydown', closeByEscape);
 
 function submitEditProfileForm (evt) {
   evt.preventDefault();
@@ -58,11 +61,8 @@ const elementTemplate = document.querySelector('.template');
 
 const buttonOpenAddCardForm = document.querySelector('.add-button');
 const popupNewCard = document.querySelector('.popup_type_new-card');
-const buttonCloseNewCard = popupNewCard.querySelector('.popup__close_type_new-card');
-
 const formNewCard = document.querySelector('.form_type_new-card');
 const elementText = document.querySelector('.element__text');
-const buttonClosePopupImage = document.querySelector('.popup__close_type_img');
 const popupImg = document.querySelector('.popup_type_img');
 const popupImgLink = document.querySelector('.popup__img');
 const popupImgTitle = document.querySelector('.popup__img-title');
@@ -114,30 +114,14 @@ function renderInitialCards() {
 
 renderInitialCards();
 
-buttonOpenAddCardForm.addEventListener ('click', () => {
-  openPopup(popupNewCard)
-});
+buttonOpenAddCardForm.addEventListener ('click', (inputList, buttonElement) => {
+  openPopup(popupNewCard);
+  //toggleButtonState(inputList, buttonElement);
+  
 
-buttonCloseNewCard.addEventListener ('click', () => {
-  closePopup(popupNewCard)
-});
 
-buttonClosePopupImage.addEventListener ('click', () => {
-  closePopup(popupImg)
-});
 
-popupNewCard.addEventListener ('click', (evt) => {
-  if (evt.target === evt.currentTarget) {
-    closePopup(popupNewCard);
-  }
 });
-
-popupImg.addEventListener ('click', (evt) => {
-  if (evt.target === evt.currentTarget) {
-    closePopup(popupImg);
-  }
-});
-
 
 //фунция добавления карточки
 function submitCard (evt) {
@@ -155,6 +139,7 @@ formNewCard.addEventListener('submit', submitCard);
 
 
 //валидация формы
+
 const showInputError = (formElement, inputElement, errorMessage) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   inputElement.classList.add(config.inputErrorClass);
@@ -215,4 +200,3 @@ const enableValidation = () => {
 };
 
 enableValidation();
-
