@@ -19,6 +19,7 @@ buttonOpenEditProfileForm.addEventListener ('click', () => {
   jobInput.value = profileJob.textContent;
 });
 
+//функция закрытия попапа через оверлей
 popups.forEach((popup) => {
   popup.addEventListener('mousedown', (evt) => {
       if (evt.target.classList.contains('popup_opened')) {
@@ -30,7 +31,7 @@ popups.forEach((popup) => {
   })
 })
 
-//шаблонная функция закрытия попапа
+//функция закрытия попапа
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
   document.removeEventListener('keydown', closeByEscape);
@@ -58,7 +59,6 @@ formEditProfile.addEventListener('submit', submitEditProfileForm);
 
 const elementContainer = document.querySelector ('.elements');
 const elementTemplate = document.querySelector('.template');
-
 const buttonOpenAddCardForm = document.querySelector('.add-button');
 const popupNewCard = document.querySelector('.popup_type_new-card');
 const formNewCard = document.querySelector('.form_type_new-card');
@@ -68,8 +68,6 @@ const popupImgLink = document.querySelector('.popup__img');
 const popupImgTitle = document.querySelector('.popup__img-title');
 const cardName = document.querySelector('.form__input_text_name');
 const imageLink = document.querySelector('.form__input_text_link');
-
-
 
 function createElement(item) {
   const element = elementTemplate.content.cloneNode(true);
@@ -119,8 +117,6 @@ buttonOpenAddCardForm.addEventListener ('click', () => {
   enableValidation(false);
 });
 
-
-
 //фунция добавления карточки
 function submitCard (evt) {
   evt.preventDefault();
@@ -134,7 +130,6 @@ function submitCard (evt) {
 }
 
 formNewCard.addEventListener('submit', submitCard);
-
 
 //валидация формы
 enableValidation();
