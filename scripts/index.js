@@ -111,10 +111,7 @@ renderInitialCards();
 
 buttonOpenAddCardForm.addEventListener ('click', () => {
   openPopup(popupNewCard);
-  const inputList = Array.from(popupNewCard.querySelectorAll(config.inputSelector));
-  const buttonElement = popupNewCard.querySelector(config.submitButtonSelector);
-  toggleButtonState(inputList, buttonElement);
-  });
+});
 
 //фунция добавления карточки
 function submitCard (evt) {
@@ -131,4 +128,4 @@ function submitCard (evt) {
 formNewCard.addEventListener('submit', submitCard);
 
 //валидация формы
-enableValidation(config);
+enableValidation(validation);
