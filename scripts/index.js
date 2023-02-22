@@ -113,8 +113,8 @@ const validation = ({
 });
 
 //валидация формы
-const validator = new FormValidator(validation, formNewCard);
-validator.enableValidation();
+const validatorNewCard = new FormValidator(validation, formNewCard);
+validatorNewCard.enableValidation();
 
-const validator2 = new FormValidator(validation, formEditProfile);
-validator2.enableValidation();
+const validatorEditProfile = new FormValidator(validation, formEditProfile);
+validatorEditProfile.enableValidation();
