@@ -1,5 +1,5 @@
 import Card from './card.js';
-//import enableValidation from './validate.js';
+import FormValidator from './validate.js';
 import {initialCards} from './constants.js';
 
 const buttonOpenEditProfileForm = document.querySelector('.edit-button');
@@ -10,6 +10,7 @@ const jobInput = formEditProfile.querySelector('.form__input_text_text');
 const profileName = document.querySelector('.profile__header');
 const profileJob = document.querySelector('.profile__text');
 const popups = document.querySelectorAll('.popup');
+
 
 //шаблонная функция открытия попапа
 function openPopup (popup) {
@@ -98,11 +99,22 @@ formNewCard.addEventListener('submit', (evt) => {
 
 renderInitialCards(initialCards);
 
-
-
 buttonOpenAddCardForm.addEventListener ('click', () => {
   openPopup(popupNewCard);
 });
 
+const validation = ({
+  formSelector: '.form',
+  inputSelector: '.form__input',
+  submitButtonSelector: '.form__input-button',
+  inactiveButtonClass: 'form__input-button_inactive',
+  inputErrorClass: 'form__input_type_error',
+  errorClass: 'form__input-error_active'
+});
+
 //валидация формы
-//enableValidation(validation);
+const validator = new FormValidator(validation, formNewCard);
+validator.enableValidation();
+
+const validator2 = new FormValidator(validation, formEditProfile);
+validator2.enableValidation();
