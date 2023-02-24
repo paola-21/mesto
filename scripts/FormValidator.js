@@ -37,7 +37,7 @@ class FormValidator {
       return !inputElement.validity.valid;
     })
   }
-
+  
   //отключает и включает кнопку
   _toggleButtonState = (inputList) => {
     if (this._hasInvalidInput(this._inputList)) {
@@ -62,6 +62,13 @@ class FormValidator {
   _disabledButton() {
   this._buttonElement.classList.add(this._config.inactiveButtonClass);
   this._buttonElement.setAttribute('disabled', 'disabled');
+  }
+
+  clearValidation() {
+    this._inputList.forEach((inputElement) => {
+      this._hideInputError(inputElement);
+    });
+    this._toggleButtonState();
   }
 
   //перебирает все формы

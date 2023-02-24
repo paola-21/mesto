@@ -1,5 +1,6 @@
+import {openPopup, popupImgLink, popupImgTitle, popupImg} from './index.js';
 class Card {
-  constructor(name, link, templateSelector) {
+  constructor(name, link, templateSelector, OpenPopup) {
     this._name = name;
     this._link = link;
     this._templateSelector = templateSelector;
@@ -7,12 +8,11 @@ class Card {
 
   //клонируем темплейт
   _getTemplate() {
-    const cardElement = document
+    return document
     .querySelector(this._templateSelector)
     .content
     .querySelector('.element')
     .cloneNode(true);
-    return cardElement;
   }
 
   //слушатели
@@ -42,13 +42,13 @@ class Card {
 
   //открытие попапа
   _handleOpenPopup() {
-    document.querySelector('.popup__img').src = this._link;
-    document.querySelector('.popup__img-title').textContent = this._name;
-    document.querySelector('.popup__img-title').alt = this._name;
-    document.querySelector('.popup_type_img').classList.add('popup_opened');
+    popupImgLink.src = this._link;
+    popupImgTitle.textContent = this._name;
+    popupImgTitle.alt = this._name;
+    openPopup(popupImg);
   }
 
-    //метод подготовки к публикации
+  //метод подготовки к публикации
   generateCard () {
     this._element = this._getTemplate();
     this._setEventListeners();
