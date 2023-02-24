@@ -114,8 +114,6 @@ buttonOpenAddCardForm.addEventListener ('click', () => {
   openPopup(popupNewCard);
 });
 
-export {popupImgLink, popupImgTitle, openPopup, popupImg};
-
 //валидация формы
 const validatorNewCard = new FormValidator(validation, formNewCard);
 validatorNewCard.enableValidation();
@@ -124,4 +122,6 @@ validatorNewCard.clearValidation();
 const validatorEditProfile = new FormValidator(validation, formEditProfile);
 validatorEditProfile.enableValidation();
 validatorEditProfile.clearValidation();
+
+export {popupImgLink, popupImgTitle, openPopup, popupImg};
 
