@@ -89,8 +89,7 @@ const renderInitialCards = (array) => {
 
 function createCard(name, link) {
   const card = new Card(name, link, '.template');
-  const cardElement = card.generateCard();
-  return cardElement;
+  return card.generateCard();
 }
 
 const addCard = (title, image) => {
@@ -100,13 +99,15 @@ const addCard = (title, image) => {
 
 //добавление карточки
 
-formNewCard.addEventListener('submit', (evt) => {
+function addNewCard (evt) {
   evt.preventDefault();
   addCard(cardName.value, imageLink.value);
   closePopup(popupNewCard);
   formNewCard.reset();
   validatorNewCard.clearValidation();
-});
+}
+
+formNewCard.addEventListener('submit', addNewCard);
 
 renderInitialCards(initialCards);
 
