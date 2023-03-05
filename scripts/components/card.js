@@ -1,8 +1,9 @@
-import {openPopup, popupImgLink, popupImgTitle, popupImg} from './index.js';
+//import {openPopup} from '../index.js';
+import {popupImgLink, popupImgTitle, popupImg} from '../utils/constants.js';
 class Card {
-  constructor(name, link, templateSelector) {
-    this._name = name;
-    this._link = link;
+  constructor(data, templateSelector) {
+    this._name = data.name;
+    this._link = data.link;
     this._templateSelector = templateSelector;
   }
 
@@ -25,9 +26,9 @@ class Card {
       this._deleteButton();
     });
 
-    this._element.querySelector('.element__foto').addEventListener('click', () => {
-      this._handleOpenPopup();
-    });
+    // this._element.querySelector('.element__foto').addEventListener('click', () => {
+    //   this._handleOpenPopup();
+    // });
   }
 
   // лайк карточки
@@ -41,15 +42,15 @@ class Card {
   }
 
   //открытие попапа
-  _handleOpenPopup() {
-    popupImgLink.src = this._link;
-    popupImgTitle.textContent = this._name;
-    popupImgTitle.alt = this._name;
-    openPopup(popupImg);
-  }
+  // _handleOpenPopup() {
+  //   popupImgLink.src = this._link;
+  //   popupImgTitle.textContent = this._name;
+  //   popupImgTitle.alt = this._name;
+  //   openPopup(popupImg);
+  // }
 
   //метод подготовки к публикации
-  generateCard () {
+  generateCard() {
     this._element = this._getTemplate();
     this._setEventListeners();
     this._element.querySelector('.element__foto').src = this._link;

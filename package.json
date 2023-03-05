@@ -1,0 +1,11 @@
+{
+  "name": "mesto",
+  "version": "1.0.0",
+  "description": "Сайт с возможностью добавлять фотографии, ставить лайки. В будующем это будет реaлизовано, а пока можно открыть и закрывать \"pop-up\".",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
