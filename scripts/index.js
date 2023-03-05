@@ -35,7 +35,8 @@ popupOpenClose.setEventListeners();
 //функция закрытия попапа через оверлей
 // popups.forEach((popup) => {
 //   popup.addEventListener('mousedown', (evt) => {
-//       if (evt.target.classList.contains('popup_opened') || evt.target.classList.contains('popup__close')) {
+//       if (evt.target.classList.contains('popup_opened') || 
+//evt.target.classList.contains('popup__close')) {
 //           closePopup(popup)
 //       }
 //   })
