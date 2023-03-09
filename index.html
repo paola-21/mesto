@@ -34,12 +34,12 @@
       <form class="form form_type_edit" name="submit" novalidate>
         <label class="form__field">
           <input id="header-input" class="form__input form__input_text_header" type="text" placeholder="Имя"  
-            name="input-header" required minlength="2" maxlength="40">
+            name="name" required minlength="2" maxlength="40">
           <span class="header-input-error form__input-error"></span>
         </label>
         <label class="form__field">
           <input id="text-input" class="form__input form__input_text_text" type="text" placeholder="Вид деятельности" 
-            name="input-text" required minlength="2" maxlength="200">
+            name="description" required minlength="2" maxlength="200">
           <span class="text-input-error form__input-error"></span>
         </label>
         <button class="form__input-button" type="submit">Сохранить</button>
@@ -54,12 +54,12 @@
       <form class="form form_type_new-card" name="submit-new-card" novalidate>
         <label class="form__field">
             <input id="name-input" class="form__input form__input_text_name" type="text" 
-              placeholder="Название" name="input-name" minlength="2" maxlength="30" required>
+              placeholder="Название" name="name" minlength="2" maxlength="30" required>
             <span class="name-input-error form__input-error"></span>
         </label>
         <label class="form__field">
             <input id="link-input" class="form__input form__input_text_link" type="url" 
-              placeholder="Ссылка на картинку" name="input-link" required>
+              placeholder="Ссылка на картинку" name="description" required>
             <span class="link-input-error form__input-error"></span>
         </label>
         <button class="form__input-button" type="submit">Создать</button>

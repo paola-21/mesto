@@ -1,10 +1,13 @@
 //import {openPopup} from '../index.js';
-import {popupImgLink, popupImgTitle, popupImg} from '../utils/constants.js';
+//import {popupImgLink, popupImgTitle, popupImg} from '../utils/constants.js';
+//import PopupWithImage from './PopupWithImage.js';
+
 class Card {
-  constructor(data, templateSelector) {
+  constructor({data, handleCardClick}, templateSelector) {
     this._name = data.name;
     this._link = data.link;
     this._templateSelector = templateSelector;
+    this._handleCardClick = handleCardClick;
   }
 
   //клонируем темплейт
@@ -26,10 +29,20 @@ class Card {
       this._deleteButton();
     });
 
-    // this._element.querySelector('.element__foto').addEventListener('click', () => {
-    //   this._handleOpenPopup();
-    // });
+    this._element.querySelector('.element__foto').addEventListener('click', () => {
+      this._popupWithImage();
+    });
   }
+  //открытие попапа
+  _popupWithImage() {
+    this._handleCardClick(this._name, this._link);
+  }
+    // popupImgLink.src = this._link;
+    // popupImgTitle.textContent = this._name;
+    // popupImgTitle.alt = this._name;
+    // openPopup(popupImg);
+  
+
 
   // лайк карточки
   _likeButton() {
@@ -41,16 +54,8 @@ class Card {
     cardDelete.remove();
   }
 
-  //открытие попапа
-  // _handleOpenPopup() {
-  //   popupImgLink.src = this._link;
-  //   popupImgTitle.textContent = this._name;
-  //   popupImgTitle.alt = this._name;
-  //   openPopup(popupImg);
-  // }
-
   //метод подготовки к публикации
-  generateCard() {
+    generateCard() {
     this._element = this._getTemplate();
     this._setEventListeners();
     this._element.querySelector('.element__foto').src = this._link;
