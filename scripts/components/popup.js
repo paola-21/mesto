@@ -1,13 +1,13 @@
-import {buttonOpenAddCardForm} from '../utils/constants.js';
+//import {buttonOpenAddCardForm} from '../utils/constants.js';
 export default class Popup {
   constructor(popup){
     this._popup = popup;
   }
 
   setEventListeners() {
-    buttonOpenAddCardForm.addEventListener('click', () => {
-        this.openPopup();
-    });
+    // buttonOpenAddCardForm.addEventListener('click', () => {
+    //     this.openPopup();
+    // });
 
     this._popup.querySelector('.popup__close').addEventListener('click', () => {
         this.closePopup();

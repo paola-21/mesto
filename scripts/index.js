@@ -20,64 +20,11 @@ const validation = ({
   errorClass: 'form__input-error_active'
 });
 
-// const popupOpenClose = new Popup(popupNewCard);
-// popupOpenClose.setEventListeners();
-
-const formUser = new UserInfo ({
-  profileName: '.profile__header', 
-  profileDescription: '.profile__text'
-});
-
-  //попап редактирования профиля
-// const profilePopupEdit = new PopupWithForm (popupEditProfile, {
-//   submitForm: (userData) => {
-//     formUser.setUserInfo({
-//     name : userData.name,
-//     description : userData.description
-//   });
-//   profilePopupEdit.closePopup();
-//   }
-//   });
-
-  const profilePopupEdit = new PopupWithForm (popupEditProfile, handleformProfile); 
-
-  function handleformProfile (data) {
-    profilePopupEdit.setUserInfo ({name: data.name, description: data.description});
-  }
-
-profilePopupEdit.setEventListeners();
-
-buttonOpenEditProfileForm.addEventListener('click', () => {
-  profilePopupEdit.openPopup();
-  //validatorEditProfile.clearValidation();
-  const userInfo = formUser.getUserInfo();
-  nameInput.value = userInfo.name;
-  jobInput.value = userInfo.description;
-});
-
-
-// const profilePopupEdit = new PopupWithForm (popupEditProfile, {
-//   submitForm: (userData) => {
-//     formUser.setUserInfo({
-//     name : userData.name,
-//     description : userData.description
-//   });
-//   profilePopupEdit.closePopup();
-//   }
-//   });
-
-//попап создания карточки
-// const PopupForm = new PopupWithForm(popupNewCard);
-// PopupForm.setEventListeners();
-
-const popupImage = new PopupWithImage(popupImg);
- popupImage.setEventListeners();
-
 const createCard = (data) => {
   const card = new Card(({
     data: data,
-    handleCardClick: (name, link) => {
-      popupImage.openPopup({name, link});
+    handleCardClick: (foto, link) => {
+      popupImage.openPopup({foto, link});
     }
   }),'.template');
   const cardElement = card.generateCard();
@@ -93,6 +40,50 @@ const CardList = new Section({
 '.elements');
 
 CardList.renderItems();
+
+//открытие картики на весь экран
+const popupImage = new PopupWithImage(popupImg);
+ popupImage.setEventListeners();
+
+const PopupNewImage = new PopupWithForm(popupNewCard, handleformNewCard);
+//PopupNewImage.setEventListeners();
+
+function handleformNewCard (data) {
+  const NewCard = createCard(data);
+    CardList.addItem(NewCard);
+  //PopupNewImage.closePopup();
+}
+
+buttonOpenAddCardForm.addEventListener('click', () => {
+  PopupNewImage.openPopup();
+});
+
+//константа с данными профиля
+const formUser = new UserInfo ({
+  profileName: '.profile__header', 
+  profileDescription: '.profile__text'
+});
+
+buttonOpenEditProfileForm.addEventListener('click', () => {
+  profilePopupEdit.openPopup();
+  const userInfo = formUser.getUserInfo();
+  nameInput.value = userInfo.name;
+  jobInput.value = userInfo.description;
+});
+
+  //попап редактирования профиля
+  const profilePopupEdit = new PopupWithForm (popupEditProfile, handleformProfile); 
+
+  function handleformProfile (data) {
+    formUser.setUserInfo ({profileName: data.name, profileDescription: data.description});
+    //profilePopupEdit.closePopup();
+  }
+
+
+
+profilePopupEdit.setEventListeners();
+
+
 
 //валидация формы
 const validatorNewCard = new FormValidator(validation, formNewCard);
@@ -189,5 +180,16 @@ validatorEditProfile.clearValidation();
 // }
 
 //formEditProfile.addEventListener('submit', submitEditProfileForm);
+
+// const profilePopupEdit = new PopupWithForm (popupEditProfile, {
+//   submitForm: (data) => {
+//     profilePopupEdit.setUserInfo({
+//     profileName: data.name, 
+//     profileDescription: data.description
+//   });
+//   profilePopupEdit.closePopup();
+//   }
+//   });
+
 
 
