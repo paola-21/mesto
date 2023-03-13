@@ -4,7 +4,6 @@ export default class UserInfo {
     this._jobInput = document.querySelector(profileDescription);
   }
 
-
   //возврашает объект с данными пользователя
   getUserInfo () {
     return {
@@ -12,6 +11,7 @@ export default class UserInfo {
       description : this._jobInput.textContent
     }
   }
+  
  //принимает новые данные пользователя и добавляет их на
   setUserInfo({name, description}) {
     this._nameInput.textContent = name;

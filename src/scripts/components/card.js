@@ -1,7 +1,3 @@
-//import {openPopup} from '../index.js';
-//import {popupImgLink, popupImgTitle, popupImg} from '../utils/constants.js';
-//import PopupWithImage from './PopupWithImage.js';
-
 class Card {
   constructor({data, handleCardClick}, templateSelector) {
     this._name = data.name;
@@ -37,12 +33,6 @@ class Card {
   _popupWithImage() {
     this._handleCardClick(this._name, this._link);
   }
-    // popupImgLink.src = this._link;
-    // popupImgTitle.textContent = this._name;
-    // popupImgTitle.alt = this._name;
-    // openPopup(popupImg);
-  
-
 
   // лайк карточки
   _likeButton() {

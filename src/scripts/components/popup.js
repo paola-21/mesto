@@ -5,10 +5,6 @@ export default class Popup {
   }
 
   setEventListeners() {
-    // buttonOpenAddCardForm.addEventListener('click', () => {
-    //     this.openPopup();
-    // });
-
     this._popup.querySelector('.popup__close').addEventListener('click', () => {
         this.closePopup();
     });
