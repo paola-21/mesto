@@ -12,7 +12,7 @@ export default class UserInfo {
       description : this._jobInput.textContent
     }
   }
- //принимает новые данные пользователя и добавляет их на страницу
+ //принимает новые данные пользователя и добавляет их на
   setUserInfo({name, description}) {
     this._nameInput.textContent = name;
     this._jobInput.textContent = description;

@@ -45,18 +45,21 @@ CardList.renderItems();
 const popupImage = new PopupWithImage(popupImg);
  popupImage.setEventListeners();
 
-const PopupNewImage = new PopupWithForm(popupNewCard, handleformNewCard);
-//PopupNewImage.setEventListeners();
+buttonOpenAddCardForm.addEventListener('click', () => {
+  popupNewImage.openPopup();
+});
+
+const popupNewImage = new PopupWithForm(popupNewCard, handleformNewCard);
+
+popupNewImage.setEventListeners();
+
 
 function handleformNewCard (data) {
-  const NewCard = createCard(data);
+    const NewCard = createCard(data);
     CardList.addItem(NewCard);
-  //PopupNewImage.closePopup();
+    popupNewImage.closePopup();
+    
 }
-
-buttonOpenAddCardForm.addEventListener('click', () => {
-  PopupNewImage.openPopup();
-});
 
 //константа с данными профиля
 const formUser = new UserInfo ({
@@ -72,19 +75,16 @@ buttonOpenEditProfileForm.addEventListener('click', () => {
 });
 
   //попап редактирования профиля
-  const profilePopupEdit = new PopupWithForm (popupEditProfile, handleformProfile); 
 
   function handleformProfile (data) {
-    formUser.setUserInfo ({profileName: data.name, profileDescription: data.description});
-    //profilePopupEdit.closePopup();
+    formUser.setUserInfo (data);
+    profilePopupEdit.closePopup();
   }
 
+  const profilePopupEdit = new PopupWithForm (popupEditProfile, handleformProfile); 
 
-
-profilePopupEdit.setEventListeners();
-
-
-
+ profilePopupEdit.setEventListeners();
+ 
 //валидация формы
 const validatorNewCard = new FormValidator(validation, formNewCard);
 validatorNewCard.enableValidation();

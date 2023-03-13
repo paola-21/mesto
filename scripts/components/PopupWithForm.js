@@ -3,29 +3,26 @@ import Popup from "./popup.js";
  export default class PopupWithForm extends Popup {
     constructor (popup, handleSubmitForm) {
     super(popup);
-    this._popup = popup;
     this._handleSubmitForm = handleSubmitForm;
-    this._form = document.querySelector('.form');
+    this._form = this._popup.querySelector('.form');
     }
 
     setEventListeners() {
       super.setEventListeners();
-      this._form.addEventListener('submit', (evt) => { 
-        evt.preventDefault();
-        this._handleSubmitForm(this._getInputValues());
-        //this._closePopup();
-    });
+      this._form.addEventListener('submit', (evt) => {
+      evt.preventDefault();
+      this._handleSubmitForm(this._getInputValues())}
+      );
     }
 
     //собирает данные всех полей формы
     _getInputValues () {
-      const data = {};
-      this._inputs = this._popup.querySelectorAll('.form__input');
+      this._data = {};
+      this._inputs = this._form.querySelectorAll('.form__input');
       this._inputs.forEach((input) => {
-        data[input.name] = input.value;
-        
+        this._data[input.name] = input.value;
       });
-      return this._inputs;
+      return this._data;
     }
     //сбрасывание формы
     closePopup() {
